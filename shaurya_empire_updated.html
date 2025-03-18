@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaurya Empire</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .container {
+            display: none;
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+        .btn {
+            background-color: black;
+            color: white;
+            padding: 15px 30px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+            display: block;
+            margin: 20px auto;
+            border-radius: 50px; /* Rounded button */
+        }
+        .btn:hover {
+            background-color: #333;
+        }
+        h2 {
+            text-align: center;
+        }
+
+        /* Full screen "GET OUT" */
+        #getOutMessage {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            color: white;
+            font-size: 100px;
+            text-align: center;
+            line-height: 100vh;
+            z-index: 1000;
+        }
+
+        /* Survey Form */
+        #surveyPage {
+            display: none;
+            max-width: 800px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Message after survey */
+        #acceptMessage {
+            display: none;
+            font-size: 24px;
+            margin-top: 30px;
+            color: #333;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <!-- Main Page -->
+    <div id="mainPage">
+        <button id="joinButton" class="btn" onclick="showTerms()">JOIN THE SHAURYA EMPIRE</button>
+    </div>
+
+    <!-- Terms and Conditions Page -->
+    <div id="termsPage" class="container">
+        <h2>Terms and Conditions of THE SHAURYA EMPIRE</h2>
+        <p>Welcome to THE SHAURYA EMPIRE. By joining, participating in, or interacting with this empire, you agree to abide by the following terms and conditions.</p>
+        <p>Failure to comply may result in penalties, including expulsion from the empire.</p>
+        <h3>1. General Rules</h3>
+        <p>1.1. All members must show loyalty and respect to the empire and its leadership.</p>
+        <p>1.2. Any form of betrayal, espionage, or conspiracy against the empire is strictly forbidden.</p>
+        <p>1.3. Members must follow the chain of command and obey lawful orders.</p>
+        <p>1.4. Snitching on fellow members without just cause is strictly prohibited.</p>
+        <p>1.5. All members must honor and frequently use the Holy Shauryan Words:</p>
+        <ul>
+            <li>GET OUT</li>
+            <li>WELCOME TO CHINA AIRLINES</li>
+            <li>UHMMMM</li>
+            <li>SO DUMB</li>
+            <li>UNCLE FOREHEAD</li>
+            <li>WHAT THE HELL</li>
+            <li>GET OUT THE COUNTRY GET OUT THE SLAVES</li>
+        </ul>
+        <p>1.6. The empire reserves the right to modify these terms at any time.</p>
+        <button class="btn" onclick="showSurvey()">Accept</button>
+        <button class="btn" onclick="decline()">Decline</button>
+    </div>
+
+    <!-- "GET OUT" Screen -->
+    <div id="getOutMessage">
+        GET OUT
+    </div>
+
+    <!-- Survey Form -->
+    <div id="surveyPage" class="container">
+        <h2>Survey</h2>
+        <iframe width="640px" height="480px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=NCpsXyRPWEi-z1oEaRAGlve49bWOcKZOhPBNsYZs5NFURExORExZUlVRM1MwU0VTRUs5NjRXWEs2Ty4u&embed=true" 
+            frameborder="0" marginwidth="0" marginheight="0" 
+            style="border: none; max-width:100%; max-height:100vh" 
+            allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> 
+        </iframe>
+        <button class="btn" onclick="showAcceptance()">Submit</button>
+    </div>
+
+    <!-- Acceptance Message -->
+    <div id="acceptMessage">
+        Thank you for your submission. We will review your application and get back to you as soon as possible.
+    </div>
+
+    <script>
+        function showTerms() {
+            document.getElementById('mainPage').style.display = 'none';
+            document.getElementById('termsPage').style.display = 'block';
+        }
+
+        function showSurvey() {
+            document.getElementById('termsPage').style.display = 'none';
+            document.getElementById('surveyPage').style.display = 'block';
+        }
+
+        function showAcceptance() {
+            document.getElementById('surveyPage').style.display = 'none';
+            document.getElementById('acceptMessage').style.display = 'block';
+
+            // Trigger Confetti
+            confetti();
+        }
+
+        function decline() {
+            document.getElementById('termsPage').style.display = 'none';
+            document.getElementById('getOutMessage').style.display = 'flex';
+        }
+    </script>
+
+</body>
+</html>
